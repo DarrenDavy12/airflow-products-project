@@ -1,10 +1,9 @@
 # 🐳 🛠️ 🚀 Airflow Products ETL Pipeline
 
-<<<<<<< HEAD
-A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. 
-=======
-A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**.
->>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
+
+## A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. 
+
+---
 
 The pipeline:  
 
@@ -21,10 +20,8 @@ The pipeline:
 ---
 
 ## 📂 Project Structure
-<<<<<<< HEAD
-=======
 
->>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
+
 ```
 airflow-products-project/
 │
@@ -65,6 +62,7 @@ airflow-products-project/
 
 ---
 
+
 ## 🐳 Running Locally (Docker)
 
 1. Start Containers:
@@ -73,30 +71,28 @@ airflow-products-project/
 docker compose up -d
 ```
 
-1. Access Airflow UI:
+2. Access Airflow UI:
 
 ```bash
 "http://localhost:8080"
 ```
 
-1. Start the scheduler in another terminal:
+3. Start the scheduler in another terminal:
 
 ```bash
 docker exec -it <airflow_container_name> airflow scheduler
 ```
 
-1. Trigger DAG manually in UI ('play' button) or wait for daily run:
+4. Trigger DAG manually in UI ('play' button) or wait for daily run:
 
-2. Verify Postgres tables:
+5. Verify Postgres tables:
 
 ```bash
 docker exec -it <airflow_container_name> psql -U airflow -d airflow
 ```
 
-<<<<<<< HEAD
+---
 
-=======
->>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
 **SQL Commands inside psql**
 
 Show all rows:
@@ -106,32 +102,26 @@ SELECT * FROM products_filtered;
 ```
 Show metrics (average price over 100):
 
-<<<<<<< HEAD
+
 ```sql 
 `SELECT * FROM products_metrics;`
 ```
 
-=======
+
 Show metrics (average price over 100):
 
 ```sql
 `SELECT * FROM products_metrics;`
 ```
->>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
+
+---
 
 **Screenshots:**
 
 ![Airflow DAG Screenshot](./images/1.successful_connection_to_airflow_ui_and_pipeline_run.png)
 
-<<<<<<< HEAD
+
 <br> 
 
 ![Postgres Output Screenshot](./images/2.successful_airflow_psql_outputs.png)
 
-
-
-=======
-<br>
-
-![Postgres Output Screenshot](./images/2.successful_airflow_psql_outputs.png)
->>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
