@@ -1,4 +1,4 @@
-# 🛠️ 🚀 Airflow Products ETL Pipeline
+# 🐳 🛠️ 🚀 Airflow Products ETL Pipeline
 
 A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. 
 
