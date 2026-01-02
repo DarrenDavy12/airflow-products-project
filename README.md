@@ -3,6 +3,8 @@
 
 ## A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. 
 
+A containerized end-to-end ETL pipeline built with Apache Airflow, Python, Pandas, Docker, and Postgres. The pipeline extracts product data from CSV, applies transformations and data cleaning, loads the results into Postgres, and logs summary metrics such as average price and filtered product names.
+
 ---
 
 The pipeline:  
