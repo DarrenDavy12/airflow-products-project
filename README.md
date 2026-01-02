@@ -1,84 +1,101 @@
 # 🛠️ 🚀 Airflow Products ETL Pipeline
 
-A containerized ETL pipeline using Python, Pandas, Postgres, and Airflow. The pipeline:
-1️⃣ Extracts product data from CSV
-2️⃣ Filters products with price > 100
-3️⃣ Cleans data (removes commas)
-4️⃣ Loads filtered data into Postgres
-5️⃣ Prints summary metrics and product names
+A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. The pipeline:  
+1️⃣ Extracts product data from CSV  
+2️⃣ Filters products with price > 100  
+3️⃣ Cleans data (removes commas)  
+4️⃣ Loads filtered data into Postgres  
+5️⃣ Prints summary metrics and product names  
 
-📂 Project Structure
+---
+
+## 📂 Project Structure
 
 airflow-products-project/
 │
 ├─ dags/
-│  └─ products_etl_dag.py       # Airflow DAG defining the ETL workflow
+│ └─ products_etl_dag.py # Airflow DAG defining the ETL workflow
 │
 ├─ data/
-│  └─ products.csv              # Sample product dataset
+│ └─ products.csv # Sample product dataset
 │
-├─ docker-compose.yml           # Docker Compose setup for Airflow + Postgres
+├─ docker-compose.yml # Docker Compose setup for Airflow + Postgres
 │
-├─ README.md                    # This file
-└─ requirements.txt             # Python dependencies
+├─ README.md # This file
+└─ requirements.txt # Python dependencies
 
-🔧 Key Features
+---
 
-ETL Workflow: Extract → Transform → Load
-Data Cleaning: Strips trailing commas in product names & categories
-PostgreSQL Integration: Saves filtered results to products_filtered table
-Airflow DAG: Orchestrates daily ETL tasks
-Logging & Reporting: Prints average price & item names
-Optional Email Notifications: Alerts on task success/failure
+## 🔧 Key Features
 
-📊 Airflow DAG Overview
+- **ETL Workflow**: Extract → Transform → Load  
+- **Data Cleaning**: Strips trailing commas in product names & categories  
+- **PostgreSQL Integration**: Saves filtered results to `products_filtered` table  
+- **Airflow DAG**: Orchestrates daily ETL tasks  
+- **Logging & Reporting**: Prints average price & item names  
+- **Optional Email Notifications**: Alerts on task success/failure  
 
-DAG Tasks:
+---
 
-Task ID Description
-extract Read CSV into Pandas DataFrame
-transform Filter products with price > 100 & clean strings
-load Save filtered data to Postgres & print summary
+## 📊 Airflow DAG Overview
 
+**DAG Tasks:**
 
+| Task ID   | Description |
+|----------|-------------|
+| `extract`  | Read CSV into Pandas DataFrame |
+| `transform`| Filter products with price > 100 & clean strings |
+| `load`     | Save filtered data to Postgres & print summary |
 
-🐳 Running Locally (Docker)
+---
 
+## 🐳 Running Locally (Docker)
 
-1. Start containers:
+1. Start Containers:
 
-`docker compose up -d`
-
+```bash
+docker compose up -d
+```
 
 2. Access Airflow UI:
 
+```bash 
 "http://localhost:8080"
+```
+
+3. Start the scheduler in another terminal:
+
+```bash
+docker exec -it <airflow_container_name> airflow scheduler
+```
+
+4. Trigger DAG manually in UI ('play' button) or wait for daily run:
 
 
-3. Start the scheduler (in another terminal):
+2. Verify Postgres tables:
 
-`docker exec -it <airflow_container_name> airflow scheduler`
+```bash 
+docker exec -it <airflow_container_name> psql -U airflow -d airflow
+```
 
 
-4. Trigger DAG manually in UI 'play button' or wait for daily run
+**SQL Commands**
 
+Show all rows:
 
-5. Verify Postgres table:
+```sql 
+SELECT * FROM products_filtered;
+```
 
-`docker exec -it <airflow_container_name> psql -U airflow -d airflow`
-
-Analysis: 
-
-Show all rows
-
-`SELECT * FROM products_filtered;`
-
-THEN run 
-
-Show metrics, in this case show rows with average price over 100
-
+<<<<<<< HEAD
 `SELECT * FROM products_metrics;`
 
 
 ![Airflow DAG Screenshot](./images/1.successful_connection_to_airflow_ui_and_pipeline_run.png)
 ![Postgres Output Screenshot](./images/2.successful_airflow_psql_outputs.png)
+=======
+Show metrics (average price over 100):
+```sql
+SELECT * FROM products_metrics;
+```
+>>>>>>> 0c7fb59 (Update README, add requirements.txt, .gitignore, and DAG improvements)
