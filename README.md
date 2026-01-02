@@ -1,16 +1,23 @@
 # 🛠️ 🚀 Airflow Products ETL Pipeline
 
-A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. The pipeline:  
+A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. 
+
+The pipeline:  
+
 1️⃣ Extracts product data from CSV  
+
 2️⃣ Filters products with price > 100  
+
 3️⃣ Cleans data (removes commas)  
+
 4️⃣ Loads filtered data into Postgres  
+
 5️⃣ Prints summary metrics and product names  
 
 ---
 
 ## 📂 Project Structure
-
+```
 airflow-products-project/
 │
 ├─ dags/
@@ -23,6 +30,7 @@ airflow-products-project/
 │
 ├─ README.md # This file
 └─ requirements.txt # Python dependencies
+```
 
 ---
 
@@ -79,23 +87,27 @@ docker exec -it <airflow_container_name> psql -U airflow -d airflow
 ```
 
 
-**SQL Commands**
+**SQL Commands inside psql**
 
 Show all rows:
 
 ```sql 
 SELECT * FROM products_filtered;
 ```
+Show metrics (average price over 100):
 
-<<<<<<< HEAD
+```sql 
 `SELECT * FROM products_metrics;`
+```
 
+
+**Screenshots:**
 
 ![Airflow DAG Screenshot](./images/1.successful_connection_to_airflow_ui_and_pipeline_run.png)
+
+<br> 
+
 ![Postgres Output Screenshot](./images/2.successful_airflow_psql_outputs.png)
-=======
-Show metrics (average price over 100):
-```sql
-SELECT * FROM products_metrics;
-```
->>>>>>> 0c7fb59 (Update README, add requirements.txt, .gitignore, and DAG improvements)
+
+
+
