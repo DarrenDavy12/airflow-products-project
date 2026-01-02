@@ -108,12 +108,6 @@ Show metrics (average price over 100):
 ```
 
 
-Show metrics (average price over 100):
-
-```sql
-`SELECT * FROM products_metrics;`
-```
-
 ---
 
 **Screenshots:**
