@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.egg-info/
+*.egg
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints
+
+# Airflow
+airflow.cfg
+airflow-webserver.pid
+airflow-scheduler.pid
+*.log
+*.db
+
+# Data
+data/
+*.csv
+
+# Docker
+*.env
+*.pid
+docker-compose.override.yml
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/

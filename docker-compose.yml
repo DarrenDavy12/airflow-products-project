@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:15
+    container_name: airflow-products-project-postgres-1
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5435:5432"  # host:container
+    volumes:
+      - ./data:/opt/airflow/data
+
+  airflow:
+    image: apache/airflow:2.10.3-python3.11
+    container_name: airflow-products-project-airflow-1
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__EXECUTOR: "LocalExecutor"
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+      AIRFLOW__WEBSERVER__WORKERS: 2
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./data:/opt/airflow/data
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "airflow db init &&
+               airflow users create --username admin --firstname Darren --lastname Davy --role Admin --email admin@example.com --password learningAirflow12 &&
+               airflow webserver"
