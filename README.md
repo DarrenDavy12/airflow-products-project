@@ -1,6 +1,10 @@
 # 🐳 🛠️ 🚀 Airflow Products ETL Pipeline
 
+<<<<<<< HEAD
 A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**. 
+=======
+A containerized ETL pipeline using **Python, Pandas, Postgres, and Airflow**.
+>>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
 
 The pipeline:  
 
@@ -17,6 +21,10 @@ The pipeline:
 ---
 
 ## 📂 Project Structure
+<<<<<<< HEAD
+=======
+
+>>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
 ```
 airflow-products-project/
 │
@@ -65,49 +73,65 @@ airflow-products-project/
 docker compose up -d
 ```
 
-2. Access Airflow UI:
+1. Access Airflow UI:
 
-```bash 
+```bash
 "http://localhost:8080"
 ```
 
-3. Start the scheduler in another terminal:
+1. Start the scheduler in another terminal:
 
 ```bash
 docker exec -it <airflow_container_name> airflow scheduler
 ```
 
-4. Trigger DAG manually in UI ('play' button) or wait for daily run:
-
+1. Trigger DAG manually in UI ('play' button) or wait for daily run:
 
 2. Verify Postgres tables:
 
-```bash 
+```bash
 docker exec -it <airflow_container_name> psql -U airflow -d airflow
 ```
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
 **SQL Commands inside psql**
 
 Show all rows:
 
-```sql 
+```sql
 SELECT * FROM products_filtered;
 ```
 Show metrics (average price over 100):
 
+<<<<<<< HEAD
 ```sql 
 `SELECT * FROM products_metrics;`
 ```
 
+=======
+Show metrics (average price over 100):
+
+```sql
+`SELECT * FROM products_metrics;`
+```
+>>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)
 
 **Screenshots:**
 
 ![Airflow DAG Screenshot](./images/1.successful_connection_to_airflow_ui_and_pipeline_run.png)
 
+<<<<<<< HEAD
 <br> 
 
 ![Postgres Output Screenshot](./images/2.successful_airflow_psql_outputs.png)
 
 
 
+=======
+<br>
+
+![Postgres Output Screenshot](./images/2.successful_airflow_psql_outputs.png)
+>>>>>>> ae399e8 (Clean repo: remove logs and pgdata, update .gitignore)

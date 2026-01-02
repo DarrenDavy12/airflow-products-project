@@ -1,3 +1,7 @@
+"""
+Manual integration test to validate ETL logic outside Airflow
+"""
+
 from etl.extract import extract_products
 from etl.transform import filter_expensive_products
 from etl.load import save_to_csv
