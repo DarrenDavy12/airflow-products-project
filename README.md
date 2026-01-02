@@ -78,3 +78,7 @@ THEN run
 Show metrics, in this case show rows with average price over 100
 
 `SELECT * FROM products_metrics;`
+
+
+![Airflow DAG Screenshot](./images/1.successful_connection_to_airflow_ui_and_pipeline_run.png)
+![Postgres Output Screenshot](./images/2.successful_airflow_psql_outputs.png)
